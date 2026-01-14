@@ -4,9 +4,10 @@ public class main {
     /**
      * Funcion que comprueba si el usuario está en la base de datos
      * @autor Lem
-     * @param user Todos los usuarios
+     * @param user Todos los usuarios en base de datos(array)
      * @param nom El usuario que queremos buscar.
      * @return Devuelve la posicion del usuario, si no se encuentra devuelve -1
+     *
      */
     public static int usuario(String[] user, String nom){
         Scanner sc = new Scanner(System.in);
@@ -18,15 +19,27 @@ public class main {
         }
         return -1;
     }
+
+    /**
+     * @param contraseña Todas las contraseñas en base de datos(array).
+     * @param validarcontraseña La contraseña que queremos comprobar.
+     * @param posicion La posición de array del nombre usuario obtenido.
+     * @return Si la contraseña es correcta devuelve 1 y si es incorrecta -1.
+     */
     public static int password (String[]contraseña, String validarcontraseña, int posicion){
         Scanner sc = new Scanner(System.in);
         validarcontraseña=sc.next();
-        
+        if (validarcontraseña.equalsIgnoreCase(contraseña[posicion])){
+            return 1;
+        }
+        return -1;
+
     }
     static void main(String[] args) {
         String [] user = {"Viper_Strike","IronGhost_99","NeoHunter","Shadow_Ninja","TurboPanda","Pixel_Paladin"};
         String [] contraseña = {"Serpiente1","Fantasma99","Caza2026","Sombra00","OsoRapido","Escudo55"};
         int posicion = 0;
+        int posicioncontraseña=0;
         String nom="";
         String validarcontraseña="";
         boolean ingresaUser=true;
@@ -40,6 +53,18 @@ public class main {
             }
         }
         System.out.println("Usuario: "+user[posicion]);
-        System.out.println("Ingrese contraseña");
+
+        boolean ingresaPas=true;
+        while(ingresaPas){
+            System.out.println("Ingrese contraseña");
+            posicioncontraseña=password(contraseña, validarcontraseña, posicion);
+            if (posicioncontraseña==-1){
+                System.out.println("Contraseña incorrecta, vuelva a intentarlo");
+            } else {
+                ingresaPas=false;
+            }
+        }
+        System.out.println("Bienvenido a tu portal @"+user[posicion]);
+
     }
 }
