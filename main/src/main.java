@@ -18,12 +18,17 @@ public class main {
         }
         return -1;
     }
+    public static int password (String[]contraseña, String validarcontraseña, int posicion){
+        Scanner sc = new Scanner(System.in);
+        validarcontraseña=sc.next();
+        
+    }
     static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
         String [] user = {"Viper_Strike","IronGhost_99","NeoHunter","Shadow_Ninja","TurboPanda","Pixel_Paladin"};
         String [] contraseña = {"Serpiente1","Fantasma99","Caza2026","Sombra00","OsoRapido","Escudo55"};
         int posicion = 0;
         String nom="";
+        String validarcontraseña="";
         boolean ingresaUser=true;
         while(ingresaUser){
             System.out.println("Ingrese el nombre de usuario:");
@@ -35,5 +40,6 @@ public class main {
             }
         }
         System.out.println("Usuario: "+user[posicion]);
+        System.out.println("Ingrese contraseña");
     }
 }
