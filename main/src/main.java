@@ -7,7 +7,6 @@ public class main {
      * @param user Todos los usuarios en base de datos(array)
      * @param nom El usuario que queremos buscar.
      * @return Devuelve la posicion del usuario, si no se encuentra devuelve -1
-     *
      */
     public static int usuario(String[] user, String nom){
         Scanner sc = new Scanner(System.in);
@@ -19,17 +18,16 @@ public class main {
         }
         return -1;
     }
-
     /**
      * @param contraseña Todas las contraseñas en base de datos(array).
-     * @param validarcontraseña La contraseña que queremos comprobar.
+     * @param validar La contraseña que queremos comprobar.
      * @param posicion La posición de array del nombre usuario obtenido.
      * @return Si la contraseña es correcta devuelve 1 y si es incorrecta -1.
      */
-    public static int password (String[]contraseña, String validarcontraseña, int posicion){
+    public static int password (String[]contraseña, String validar, int posicion){
         Scanner sc = new Scanner(System.in);
-        validarcontraseña=sc.next();
-        if (validarcontraseña.equalsIgnoreCase(contraseña[posicion])){
+        validar=sc.next();
+        if (validar.equals(contraseña[posicion])){
             return 1;
         }
         return -1;
